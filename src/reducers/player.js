@@ -44,7 +44,8 @@ export default function Player(state=initialState, action) {
             ];
             return {
                 ...state,
-                players: removePlayerList
+                players: removePlayerList,
+                selectedPlayerIndex: -1
             };
         }
 

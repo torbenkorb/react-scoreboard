@@ -6,6 +6,7 @@ import AddPlayerForm from '../components/AddPlayerForm';
 import Player from '../components/Player';
 import PlayerDetail from '../components/PlayerDetail';
 import Header from '../components/Header';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 let nextId = 3;
 
@@ -43,7 +44,12 @@ class Scoreboard extends Component {
             <div className="scoreboard">
                 <Header players={players} />
                 <div className="players">
-                    { playerComponents }
+                    <ReactCSSTransitionGroup
+                        transitionName="fade"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}>
+                        { playerComponents }
+                    </ReactCSSTransitionGroup>
                 </div>
                 <AddPlayerForm addPlayer={addPlayer} />
                 <div className="player-detail">
